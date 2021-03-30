@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    
+
+
+    <title>Generator</title>
+</head>
+<body>
+
+<nav class="navbar" style="background-color:black; height: 1.2cm;">
+  <a style="color:white;margin-left:70px; font-size: 0.5cm;">Generator</a>
+</nav>
+<div class="container" id="app">
+  <div class="row">
+    <div class="col-sm">
+      <br>
+      <br>
+      <br>
+      <br>
+      <h2 style="color:blue; font-family: 'Lobster'; font-size: 1.2cm;"> Utilisez notre superbe générateur !</h2>
+      <br>
+      <h4>Créez facilement deux équipes de deux joueurs.</h4>
+      <p>Ce generateur bénéfice d'un algorithme de tri super puissant mais ne donne aucun super skills aux joueurs</p>
+      <br>
+      <button class="btn btn-outline-primary btn-lg" type="button" data-bs-parent="#accordion" data-bs-toggle="collapse" data-bs-target="#formulaire" aria-expanded="true" aria-controls="formulaire" >Découvrir <i class="fas fa-arrow-down"></i></button>
+    </div>
+    <div class="col-sm">
+      <br>
+      <img src="assets/images/team.jpg" class="rounded" alt="Responsive image" style="max-width: 100%; max-height: 100%;">
+    </div>
+    <div><br></div>
+    <hr>
+    <div><br><br></div>
+    <div class="accordion-group" id="accordion">
+
+      <div class="collapse" id="formulaire" data-bs-parent="#accordion" style="width: 800px; border-radius: 5px;  border-style: solid; border-color: lightgray;border-radius: 5px; margin:auto">
+        <div class="row" style="height: 40px; align-items: center; background-color: lightgray;">
+          <a style="text-align: center;">Formulaire de génération d'équipe</a>
+        </div>
+        <div class="row" style="padding: 30px; padding-top: 60px;">
+          <a>Remplissez le formulaire suivant :</a>
+          <div class="col">
+            <br>
+            <label for="joueur1" class="form-label">Joueur 1 * : </label>
+            <input type="text" class="form-control" v-model="joueur1">
+            <br>
+            <label for="joueur2" class="form-label">Joueur 2 * : </label>
+            <input type="text" class="form-control" v-model="joueur2">
+          </div>
+          <div class="col">
+            <br>
+            <label for="joueur3" class="form-label">Joueur 3 * : </label>
+            <input type="text" class="form-control" v-model="joueur3">
+            <br>
+            <label for="joueur4" class="form-label">Joueur 4 * : </label>
+            <input type="text" class="form-control" v-model="joueur4">
+          </div>
+          <div><br></div>
+          <button class="btn btn-success" style="margin-left: 12px; width: 712px;" :disabled="(disbutton())" v-on:click="randomJoueur()" data-bs-parent="#accordion" data-bs-toggle="collapse" data-bs-target="#resultat" aria-expanded="true" aria-controls="resultat">Valider</button>
+          <div><br></div>
+        </div>
+      </div>
+
+
+      <div class="collapse" id="resultat" data-bs-parent="#accordion" style="width: 800px; border-radius: 5px; border-radius: 5px; margin:auto">
+        <h2 style="text-align: center;">A vous de jouer maintenant !</h2>
+        <br>
+        <div class="accordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Equipe #1
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-body">
+                <p> {{ joueurrandom1 }} </p>
+                <p> {{ joueurrandom2 }} </p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                Equipe #2
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse show">
+              <div class="accordion-body">
+                <p> {{ joueurrandom3 }} </p>
+                <p> {{ joueurrandom4 }} </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div><br><br><br><br></div>
+
+
+  </div>
+
+</div>
+
+<!-- Vue JS -->
+<script src="https://unpkg.com/vue@3.0.5"></script>
+<script src="app.js"></script>	
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
